@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package fr.gamedev.question.data;
 
@@ -17,74 +17,77 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class UserAnswer {
+    /** */
+    @GeneratedValue(generator = "seq_gen_userAnswer")
+    @GenericGenerator(name = "seq_gen_userAnswer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
+            @Parameter(name = "sequence_name", value = "seq_answerUser"),
+            @Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
+    @Id
+    private long id;
 
-	@GeneratedValue(generator = "seq_gen_userAnswer")
-	@GenericGenerator(name = "seq_gen_userAnswer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-			@Parameter(name = "sequence_name", value = "seq_answerUser"),
-			@Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
-	@Id
-	private long id;
+    /** */
+    @ManyToOne
+    private User user;
+    /** */
+    @ManyToOne
+    private Answer answer;
+    /** */
+    private long points;
 
-	@ManyToOne
-	private User user;
-	@ManyToOne
-	private Answer answer;
-	private long points;
+    /**
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
 
-	/**
-	 * @return the id
-	 */
-	public long getId() {
-		return id;
-	}
+    /**
+     * @param theId the id to set
+     */
+    public void setId(final long theId) {
+        this.id = theId;
+    }
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
+    /**
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
 
-	/**
-	 * @return the user
-	 */
-	public User getUser() {
-		return user;
-	}
+    /**
+     * @param theUser the user to set
+     */
+    public void setUser(final User theUser) {
+        this.user = theUser;
+    }
 
-	/**
-	 * @param user the user to set
-	 */
-	public void setUser(User user) {
-		this.user = user;
-	}
+    /**
+     * @return the points
+     */
+    public long getPoints() {
+        return points;
+    }
 
-	/**
-	 * @return the points
-	 */
-	public long getPoints() {
-		return points;
-	}
+    /**
+     * @param thePoints the points to set
+     */
+    public void setPoints(final long thePoints) {
+        this.points = thePoints;
+    }
 
-	/**
-	 * @param points the points to set
-	 */
-	public void setPoints(long points) {
-		this.points = points;
-	}
+    /**
+     * @return the answer
+     */
+    public Answer getAnswer() {
+        return answer;
+    }
 
-	/**
-	 * @return the answer
-	 */
-	public Answer getAnswer() {
-		return answer;
-	}
+    /**
+     * @param theAnswer the answer to set
+     */
+    public void setAnswer(final Answer theAnswer) {
+        this.answer = theAnswer;
+    }
 
-	/**
-	 * @param answer the answer to set
-	 */
-	public void setAnswer(Answer answer) {
-		this.answer = answer;
-	}
-	
 }
