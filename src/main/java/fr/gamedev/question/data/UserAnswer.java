@@ -17,21 +17,29 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class UserAnswer {
-    /** */
+    /**
+     * Class UserAnswer.
+     */
     @GeneratedValue(generator = "seq_gen_userAnswer")
-    @GenericGenerator(name = "seq_gen_userAnswer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @Parameter(name = "sequence_name", value = "seq_answerUser"),
-            @Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
+    @GenericGenerator(name = "seq_gen_userAnswer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = { @Parameter(name = "sequence_name", value = "seq_answerUser"),
+                    @Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
     @Id
     private long id;
 
-    /** */
+    /**
+     * Join Class User.
+     */
     @ManyToOne
     private User user;
-    /** */
+    /**
+     * Join Class Answer.
+     */
     @ManyToOne
     private Answer answer;
-    /** */
+    /**
+     * Points que rapporte la réponse.
+     */
     private long points;
 
     /**

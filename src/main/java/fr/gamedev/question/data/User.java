@@ -1,8 +1,13 @@
 package fr.gamedev.question.data;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -13,17 +18,30 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class User {
-    /** */
+    /**
+     * Class User.
+     */
     @GeneratedValue(generator = "seq_gen_user")
-    @GenericGenerator(name = "seq_gen_user", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @Parameter(name = "sequence_name", value = "seq_user"), @Parameter(name = "initial_value", value = "0"),
-            @Parameter(name = "increment_size", value = "1") })
+    @GenericGenerator(name = "seq_gen_user", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = { @Parameter(name = "sequence_name", value = "seq_user"),
+                    @Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
     @Id
     private long id;
-    /** */
+    /**
+     * Login.
+     */
     private String login;
-    /** */
+    /**
+     * LastName.
+     */
     private String lastName;
+    /**
+     * Join Class Preference.
+     */
+    @ManyToMany
+    @JoinTable(name = "USER_PREF", joinColumns = @JoinColumn(name = "USER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "PREF_ID"))
+    private Collection<Preference> preference;
 
     /**
      * @return the id

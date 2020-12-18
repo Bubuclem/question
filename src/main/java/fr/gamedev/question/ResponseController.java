@@ -17,7 +17,6 @@ public class ResponseController {
      * @param userId
      */
     @GetMapping("/response")
-
     public String answer(@RequestParam final long questionId, @RequestParam final Boolean answer,
             @RequestParam final long userId) {
         String response;

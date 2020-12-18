@@ -14,17 +14,23 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class Answer {
-    /** . */
+    /**
+     * Class Answer.
+     */
     @GeneratedValue(generator = "seq_gen_answer")
-    @GenericGenerator(name = "seq_gen_answer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator", parameters = {
-            @Parameter(name = "sequence_name", value = "seq_answer"), @Parameter(name = "initial_value", value = "0"),
-            @Parameter(name = "increment_size", value = "1") })
+    @GenericGenerator(name = "seq_gen_answer", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = { @Parameter(name = "sequence_name", value = "seq_answer"),
+                    @Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
     @Id
     private long id;
-    /** . */
+    /**
+     * Join Class Question.
+     */
     @OneToOne
     private Question question;
-    /** . */
+    /**
+     *  Answer.
+     */
     private Boolean correctAnswer;
 
     /**
