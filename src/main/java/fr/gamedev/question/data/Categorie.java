@@ -13,15 +13,18 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class Categorie {
+    //TODO grp1 by DJE : JavaDoc : la JavaDoc de la classe se trouve juste avant la classe (là ou il y a deja le @author). Ici c'est pour documenter l'attribut id.
     /**
      * Class Categorie.
      */
     @GeneratedValue(generator = "seq_gen_categorie")
+    //TODO grp1 by DJE : Eclipse : importe (et utilise) le formatter dans le dossier "eclipseConf" ! 
     @GenericGenerator(name = "seq_gen_categorie", strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
             parameters = { @Parameter(name = "sequence_name", value = "seq_categorie"),
                     @Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
     @Id
     private long id;
+    //TODO grp1 by DJE : JavaDoc : Non ! C'est le nom de la catégorie !
     /**
      * Join Class Question.
      */

@@ -17,6 +17,7 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class UserAnswer {
+    //TODO grp1 by DJE : JavaDoc : la JavaDoc de la classe se trouve juste avant la classe (là ou il y a deja le @author). Ici c'est pour documenter l'attribut id.
     /**
      * Class UserAnswer.
      */

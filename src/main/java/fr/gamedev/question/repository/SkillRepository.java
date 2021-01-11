@@ -5,6 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import fr.gamedev.question.data.Skill;
 
+//TODO grp1 by DJE : JavaDoc : Est-ce vraiment le bon Author ?
 /**
  * @author djer1
  *

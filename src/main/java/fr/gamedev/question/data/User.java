@@ -18,6 +18,7 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class User {
+    //TODO grp1 by DJE : JavaDoc : la JavaDoc de la classe se trouve juste avant la classe (là ou il y a deja le @author). Ici c'est pour documenter l'attribut id.
     /**
      * Class User.
      */
@@ -41,6 +42,7 @@ public class User {
     @ManyToMany
     @JoinTable(name = "USER_PREF", joinColumns = @JoinColumn(name = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "PREF_ID"))
+    //TODO grp1 by DJE : Eclipse : "attribut non utilisé", manque-t-il les getter/setter ?
     private Collection<Preference> preference;
 
     /**

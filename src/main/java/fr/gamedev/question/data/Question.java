@@ -13,6 +13,7 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class Question {
+    //TODO grp1 by DJE : JavaDoc : la JavaDoc de la classe se trouve juste avant la classe (là ou il y a deja le @author). Ici c'est pour documenter l'attribut id.
     /**
      * Class Question. 
      */
@@ -22,6 +23,7 @@ public class Question {
                     @Parameter(name = "initial_value", value = "0"), @Parameter(name = "increment_size", value = "1") })
     @Id
     private long id;
+    //TODO grp1 by DJE : CheckStyle : corrige les remarques de qualité de code surtout lorsqu'elles sont faciles ! (il ne doit pas y avoir d'espace "invisibles" : à la fin des lignes)
     /** 
      * Question.
      */

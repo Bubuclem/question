@@ -18,6 +18,7 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class Skill {
+    //TODO grp1 by DJE : JavaDoc : la JavaDoc de la classe se trouve juste avant la classe (là ou il y a deja le @author). Ici c'est pour documenter l'attribut id.
     /**
      * Class Skill.
      */
@@ -31,10 +32,13 @@ public class Skill {
      * Nom.
      */
     private String nom;
+
     /**
      * Join Class Categorie.
      */
+    //TODO grp1 by DJE : ORM : ManayToMany ? Donc une Skill peut avoir plusieurs catégorie ? 
     @ManyToMany
+    //TODO grp1 by DJE : ORM :l'annotation @JoinTable est optionnelles et il faut eviter de l'utiliser. Cela créer des liens avec la BDD directement, ce que justement l'ORM essaie d'éviter. Cette annotation sert surtout lorsque l'on ajoute l'ORM après coups et que les règles par defaut n'ont pas été appliquées.
     @JoinTable(name = "SKILL_CAT", joinColumns = @JoinColumn(name = "SKILL_ID"),
             inverseJoinColumns = @JoinColumn(name = "CAT_ID"))
     private Collection<Categorie> categorie;

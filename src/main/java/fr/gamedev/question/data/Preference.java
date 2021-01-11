@@ -18,6 +18,8 @@ import org.hibernate.annotations.Parameter;
  */
 @Entity
 public class Preference {
+    //TODO grp1 by DJE : JavaDoc : la JavaDoc de la classe se trouve juste avant la classe (là ou il y a deja le @author). Ici c'est pour documenter l'attribut id.
+    //TODO grp1 by DJE : JavaDoc : il n'est pas très utile d'indiquer le nom de la classe, on le voit dans le code et JavaDoc le récupère autmatiquement. Qu'est-ce que cette classe ? A quoi sert-elle ? 
     /**
      * Class Preference.
      */
@@ -39,6 +41,7 @@ public class Preference {
      * Join Class Skill.
      */
     @ManyToMany
+    //TODO grp1 by DJE : ORM :l'annotation @JoinTable est optionnelles et il faut eviter de l'utiliser. Cela créer des liens avec la BDD directement, ce que justement l'ORM essaie d'éviter. Cette annotation sert surtout lorsque l'on ajoute l'ORM après coups et que les règles par defaut n'ont pas été appliquées.
     @JoinTable(name = "PREF_SKILL", joinColumns = @JoinColumn(name = "PREF_ID"),
             inverseJoinColumns = @JoinColumn(name = "SKILL_ID"))
     private Collection<Skill> skill;
@@ -85,10 +88,13 @@ public class Preference {
         this.nom = theNom;
     }
 
+    //TODO grp1 by DJE : JavaDoc : indique la JavaDoc. Deplus lorsque CheckStyle détecte une méthode nom compatible avec "designForExtension" il l'ignore s'il y a une JavaDoc (supposant que la JavaDoc indique comment correctement étendre)
+
     public Collection<Skill> getSkill() {
         return skill;
     }
 
+    //TODO grp1 by DJE : JavaDoc : indique la JavaDoc. Deplus lorsque CheckStyle détecte une méthode nom compatible avec "designForExtension" il l'ignore s'il y a une JavaDoc (supposant que la JavaDoc indique comment correctement étendre)
     public void setSkill(Collection<Skill> skill) {
         this.skill = skill;
     }
